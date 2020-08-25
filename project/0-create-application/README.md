@@ -48,7 +48,7 @@ nest generate controller Employees
 ```
 
 In Employees Controller create a new function and add route "/employees".
-Copy "users.json", put in into the module and return content from the function.
+Copy "employees.ts", put in into the module and return content from the function.
 
 ---
 
