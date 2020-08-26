@@ -94,3 +94,15 @@ Add validation rules, example:
 @IsString()
 firstname: string;
 ```
+
+---
+
+**Step 7**
+
+Add DTO and validation to the PUT route.
+
+---
+
+**Step8**
+
+BONUS: add filtering feature in the "/employees" route. Use query params for filtered fields.
