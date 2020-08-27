@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { EventService } from '../utils/event.service';
 import { GenerateIdService } from '../utils/generateid.service';
 import { AddEmployeeDto } from './addemployee.dto';
 import { EmployeesRepository } from './employees.repository';
@@ -10,6 +11,7 @@ export class EmployeesService {
     @Inject('EmployeesRepository')
     private readonly employeesRepository: EmployeesRepository,
     private readonly generateIdService: GenerateIdService,
+    private readonly eventService: EventService,
   ) {}
 
   async getEmployees(filterOptions: { [key: string]: any } = {}) {
@@ -24,7 +26,9 @@ export class EmployeesService {
     const id = this.generateIdService.generateId();
     const dto = { ...addEmployeeDto, id };
 
-    return this.employeesRepository.addEmployee(dto);
+    await this.employeesRepository.addEmployee(dto);
+
+    this.eventService.emit('add_employee', dto);
   }
 
   async updateEmployee(

@@ -19,11 +19,17 @@ export class LowdbAdapter {
   }
 
   async getRecordById(collection: string, recordId: string) {
-    return this.db.get(collection).find({ id: recordId }).value();
+    return this.db
+      .get(collection)
+      .find({ id: recordId })
+      .value();
   }
 
   async addRecord(collection: string, record: any) {
-    return this.db.get(collection).push(record).write();
+    return this.db
+      .get(collection)
+      .push(record)
+      .write();
   }
 
   async updateRecord(collection: string, recordId: string, record: any) {
@@ -35,6 +41,9 @@ export class LowdbAdapter {
   }
 
   async deleteRecord(collection: string, recordId: string) {
-    return this.db.get(collection).remove({ id: recordId }).write();
+    return this.db
+      .get(collection)
+      .remove({ id: recordId })
+      .write();
   }
 }

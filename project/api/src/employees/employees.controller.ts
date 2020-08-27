@@ -10,7 +10,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { AddEmployeeDto } from './addemployee.dto';
-import employees from './employees';
 import { EmployeesService } from './employees.service';
 import { UpdateEmployeeDto } from './updateemployee.dto';
 

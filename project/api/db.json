@@ -15,6 +15,13 @@
       "department": "Cross Industries",
       "hired": 2013,
       "id": "e02c2b45-987c-49ec-992e-e7cd9e811f9a"
+    },
+    {
+      "firstname": "Jacob",
+      "lastname": "Java",
+      "role": "Trainee",
+      "department": "CI",
+      "id": "277a4591-30a9-4105-b383-bfddea824a4d"
     }
   ]
 }
