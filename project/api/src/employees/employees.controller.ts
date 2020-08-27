@@ -9,13 +9,29 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
+import { FileSystemService } from '../utils/filesystem.service';
 import { AddEmployeeDto } from './addemployee.dto';
 import { EmployeesService } from './employees.service';
 import { UpdateEmployeeDto } from './updateemployee.dto';
 
 @Controller('employees')
 export class EmployeesController {
-  constructor(private readonly employeesService: EmployeesService) {}
+  constructor(
+    private readonly employeesService: EmployeesService,
+    private readonly fileSystemService: FileSystemService,
+  ) {}
+
+  @Get('import')
+  async importEmployees() {
+    const data = await this.fileSystemService.read(
+      `${__dirname}/../../in/employees.txt`,
+    );
+    const employees = JSON.parse(data.toString());
+
+    // add to db
+
+    return employees;
+  }
 
   @Get()
   getEmployees(@Query() query) {
@@ -35,7 +51,7 @@ export class EmployeesController {
 
   @Post()
   addEmployee(@Body() addEmployeeDto: AddEmployeeDto) {
-    this.employeesService.addEmployee(addEmployeeDto);
+    return this.employeesService.addEmployee(addEmployeeDto);
   }
 
   @Put(':id')

@@ -1,0 +1,60 @@
+### Sprint 4 - import/export data to external systems
+
+---
+
+**To Do**
+1. On employee creation save data to a file in ”out” directory
+2. Check if file already exists, if it exists emit an error
+3. Periodically check for files in “in” directory
+4. If a new file appears in "in", read it and insert user into database
+5. Remove already imported file
+
+---
+
+**Step 1**
+
+Create file operations service in the utils module. Don't forger to register it in the module definition
+```
+filesystem.service.ts
+```
+
+Add "write" method. The method should return a promise! Don't use callbacks.  
+You have three possibilities:
+1. Wrap code into a promise and return the promise
+2. Promisify the fs.writeFile function using utils.promisify
+3. Use the promise part of the "fs" module
+
+---
+
+**Step 2**
+
+Import the file operations service to the employees service and call it
+after user creation. Saved data should be a string, stringify it with JSON.stringify.
+All files should be saved in **out** directory in the application root.
+
+---
+
+**Step 3**
+
+Import employees from **in** directory located in the application root.
+For this step create a new endpoint, for example: "/employees/import".
+Extend the file operations service, add "read" and "deleteFile" methods. Call it 
+either directly from the controller or create a new method in the employees service.
+After successful import delete the file.
+
+---
+
+**Step 4**
+
+Refactor the code from step 3. Do not use a route, which must be triggered manually.
+Add a watcher, which will periodically check "in" folder for new files.
+Read these files, call emoloyees service, then delete the files.
+
+---
+
+**Hints**
+
+1. Use **fs.watch** to watch for files. This method creates a watcher, which is also an unstance of Event Emitter. Listen for the "change" event.
+2. Add "watch" method to the file operations service, inject it into "employees" module constructor and listen for the "change" event there.
+3. Be careful. Deleting a file will also trigger an event.
+4. Warning! The watch functionality can behave differently on some OSs.
