@@ -43,5 +43,9 @@ export class EmployeesModule {
         } catch {}
       }
     });
+
+    watcher.on('error', () => {
+      // @todo
+    });
   }
 }
