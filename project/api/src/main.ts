@@ -1,7 +1,11 @@
+import { config } from 'dotenv';
+config();
+
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { auth } from './auth.middleware';
+import { APP_PORT } from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,6 +19,6 @@ async function bootstrap() {
 
   app.use(auth);
 
-  await app.listen(3000);
+  await app.listen(APP_PORT);
 }
 bootstrap();

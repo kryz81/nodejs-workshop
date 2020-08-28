@@ -1,4 +1,4 @@
-### Sprint 4 - logging and authentication in one central place
+### Sprint 6 - logging and authentication in one central place
 
 ---
 

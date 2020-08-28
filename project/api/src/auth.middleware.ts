@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
+import { AUTH_TOKEN } from './config';
 
 const typesToCheck = ['POST', 'PUT', 'DELETE'];
-const token = '12345';
+const token = AUTH_TOKEN;
 
 export function auth(req: Request, res: Response, next: NextFunction) {
   if (!typesToCheck.includes(req.method)) {
