@@ -1,4 +1,9 @@
-import { Module } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { EventService } from '../utils/event.service';
 import { FileSystemService } from '../utils/filesystem.service';
 import { UtilsModule } from '../utils/utils.module';
@@ -9,6 +14,7 @@ import { EmployeesService } from './employees.service';
 import { erpListener } from './listeners/erp.listener';
 import { profilerListener } from './listeners/profiler.listener';
 import { LowdbAdapter } from './lowdb-adapter';
+import { LogEmployeeCreationMiddleware } from './middleware/logemployeecreation.middleware';
 
 @Module({
   imports: [UtilsModule],
@@ -19,7 +25,7 @@ import { LowdbAdapter } from './lowdb-adapter';
     { provide: 'EmployeesRepository', useClass: EmployeesMockRepository },
   ],
 })
-export class EmployeesModule {
+export class EmployeesModule implements NestModule {
   constructor(
     private readonly eventService: EventService,
     private readonly fileSystemService: FileSystemService,
@@ -47,5 +53,11 @@ export class EmployeesModule {
     watcher.on('error', () => {
       // @todo
     });
+  }
+
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LogEmployeeCreationMiddleware)
+      .forRoutes({ path: 'employees', method: RequestMethod.POST });
   }
 }

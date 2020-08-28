@@ -8,6 +8,7 @@
 * [Javascript Testing Best Practices](https://github.com/goldbergyoni/javascript-testing-best-practices)
 * [OWASP Node.js Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html)
 * [npm semver Calculator](https://semver.npmjs.com/)
+* [NestJS Learning Resources](https://github.com/juliandavidmr/awesome-nestjs)
 
 **Recommended Books and Courses**
 * Book [Node.js Design Patterns - Third Edition](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110)
