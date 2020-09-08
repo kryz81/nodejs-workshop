@@ -1,9 +1,11 @@
 import {
   Controller,
+  Get,
   NotFoundException,
   Param,
   Post,
   Req,
+  Res,
 } from '@nestjs/common';
 import { EmployeesService } from '../employees/employees.service';
 import { DocumentsService } from './documents.service';
@@ -23,6 +25,12 @@ export class DocumentsController {
       throw new NotFoundException('Invalid employee');
     }
 
-    return this.documentsService.upload(employeeId, req);
+    this.documentsService.upload(employeeId, req);
+  }
+
+  @Get(':documentId')
+  async downloadDocument(@Param('documentId') documentId: string, @Res() res) {
+    const stream = await this.documentsService.download(documentId);
+    stream.pipe(res);
   }
 }
