@@ -24,6 +24,7 @@ import { LogEmployeeCreationMiddleware } from './middleware/logemployeecreation.
     LowdbAdapter,
     { provide: 'EmployeesRepository', useClass: EmployeesMockRepository },
   ],
+  exports: [EmployeesService],
 })
 export class EmployeesModule implements NestModule {
   constructor(
