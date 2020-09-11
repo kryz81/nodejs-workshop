@@ -1,10 +1,10 @@
 const express = require('express');
-const { createWriteStream } = require('fs');
+const { createReadStream } = require('fs');
 
 const app = express();
 
 app.get('/', (req, res) => {
-  req.pipe(req.res);
+  createReadStream(__filename).pipe(res);
 });
 
 app.listen(3000, () => console.log('Listening'));
