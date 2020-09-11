@@ -15,6 +15,56 @@
 
 **Step 1**
 
-...
+Copy tool.js to the application root directory
+
+---
+
+**Step 2**
+
+```
+@Get('report/:employeeId')
+```
+
+---
+
+**Step 3**
+
+Use "fork" to create a child process.
+
+```
+const child = fork(toolPath, { silent: true });
+```
+
+---
+
+**Step 4**
+
+Send employee id to the tool. Return promise and handle process management inside the promise.
+
+```
+child.send(...)
+```
+
+---
+
+**Step 5**
+
+```
+child.on('message', () => {...})
+```
+
+---
+
+**Step 6**
+
+Create report.service.ts
+
+---
+
+**Step 7**
+
+```
+child.on('exit', (code, signal) => {...})
+```
 
 ---
