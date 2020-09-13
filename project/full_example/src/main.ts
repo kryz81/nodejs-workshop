@@ -1,3 +1,4 @@
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { config } from 'dotenv';
 config();
 
@@ -18,6 +19,15 @@ async function bootstrap() {
   );
 
   app.use(auth);
+
+  const options = new DocumentBuilder()
+    .setTitle('My API')
+    .setDescription('My API Docs')
+    .setVersion('1.0')
+    .build();
+
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('docs', app, document);
 
   await app.listen(APP_PORT);
 }
