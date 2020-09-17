@@ -52,7 +52,7 @@ nest generate service Employees
 
 **Step 4**
 
-Create repository interface and lowdb repository, 
+Create lowdb repository which implements employees repository interface, 
 import lowdb-adapter.ts and implement all actions in the repository.
 Register adapter and repository in the module declarations. 
 

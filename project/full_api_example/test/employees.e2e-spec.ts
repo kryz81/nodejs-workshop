@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { AppModule } from '../src/app.module';
 
 jest.mock('../src/employees/listeners/erp.listener');
 jest.mock('../src/employees/listeners/profiler.listener');
