@@ -1,0 +1,67 @@
+{
+  "employees": [
+    {
+      "firstname": "Tim",
+      "lastname": "Tester",
+      "role": "Tester",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "36f6fdc1-7415-49ec-b20c-105f922ad107"
+    },
+    {
+      "firstname": "Tim",
+      "lastname": "Tester",
+      "role": "Tester",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "3c3837ec-168f-4280-8c1d-58a9548f4549"
+    },
+    {
+      "firstname": "Tim",
+      "lastname": "Tester",
+      "role": "Tester",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "3b591a25-28ed-46f2-970f-536c16daf50d"
+    },
+    {
+      "firstname": "Lisa",
+      "lastname": "Mustermann",
+      "role": "Architect",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "f9ffe0ad-2938-45d6-b8b8-dd4ec3379f42"
+    },
+    {
+      "firstname": "Lisa",
+      "lastname": "Mustermann",
+      "role": "Architect",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "6f053707-8e56-4066-a5d2-a8f237472f83"
+    },
+    {
+      "firstname": "Lisa",
+      "lastname": "Mustermann",
+      "role": "Architect",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "d918ecc3-a59e-4034-8f9e-333140ba34c4"
+    },
+    {
+      "firstname": "Lisa",
+      "lastname": "Mustermann",
+      "role": "Architect",
+      "department": "CC",
+      "place": "Hamburg",
+      "hiredOn": 2019,
+      "id": "0a5fa58a-0d0f-46b1-8eb1-bb5acab39812"
+    }
+  ]
+}

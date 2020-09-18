@@ -31,30 +31,3 @@ You have three possibilities:
 Import the file operations service to the employees service and call it
 after user creation. Saved data should be a string, stringify it with JSON.stringify.
 All files should be saved in **out** directory in the application root.
-
----
-
-**Step 3**
-
-Import employees from **in** directory located in the application root.
-For this step create a new endpoint, for example: "/employees/import".
-Extend the file operations service, add "read" and "deleteFile" methods. Call it 
-either directly from the controller or create a new method in the employees service.
-After successful import delete the file.
-
----
-
-**Step 4**
-
-Refactor the code from step 3. Do not use a route, which must be triggered manually.
-Add a watcher, which will periodically check "in" folder for new files.
-Read these files, call emoloyees service, then delete the files.
-
----
-
-**Hints**
-
-1. Use **fs.watch** to watch for files. This method creates a watcher, which is also an unstance of Event Emitter. Listen for the "change" event.
-2. Add "watch" method to the file operations service, inject it into "employees" module constructor and listen for the "change" event there.
-3. Be careful. Deleting a file will also trigger an event.
-4. Warning! The watch functionality can behave differently on some OSs.

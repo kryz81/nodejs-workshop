@@ -36,7 +36,7 @@ npm i lowDB
 npm i -D @types/lowdb
 ```
 
-Copy db.json, lowdb-adapter.ts and employee.model.ts to the employees module.
+Copy "lowdb-adapter.ts" to the employees module. Copy config.ts to the "src" directory.
 
 ---
 
@@ -68,7 +68,7 @@ npm i uuid
 ```
 
 Create "Utils" module, implement "generate id" service, export it, 
-import it in the "employees" module and use in the employees service.
+import it in the "employees" module and use in the employees repository.
 
 ---
 
